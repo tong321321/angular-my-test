@@ -1,0 +1,31 @@
+<p>template-driven-form-ex1 works!</p>
+
+<form #form="ngForm">
+    <u> Return CounterInputComponent property _counterValue in counterInputComponwnt propagateChange</u><br/>
+    CounterInputComponent:<app-counter-input name="counter"  [(ngModel)]="outerCounterValue"
+    (ngModelChange)="changeRandomInt($event)"></app-counter-input>
+    <p></p>
+    <u>Intentional return value not = CounterInputComponent2 property _counterValue in counterInputComponent2 propagateChange </u><br/>
+    CounterInputComponent2:<app-counter-input2 name="counter2"  [(ngModel)]="outerCounterValue2"
+    (ngModelChange)="changeRandomInt($event)"></app-counter-input2>
+    <p></p>
+    Try modify the value of following:<br/>
+    <!-- property binding, change will not update ts test property-->
+    property binding:
+    <input type='text' name = 'test' [ngModel]="test1"/> 
+    change will NOT update to model ts property test<br/>
+    
+    <p></p>
+    two way binding
+    <input type='text' name = 'test2' [(ngModel)]="test2"/> 
+    change will update to model ts property test
+    <br/>
+    non angular form control:<input type='text' name = 'test3' value='test3' />
+  </form>
+  <p></p>
+  <div>property test1 in ts (model):{{test1}}</div>
+  <div>property test2 in ts (model):{{test2}}</div>
+  <div>outerCounterValue={{outerCounterValue}}</div>
+  <div>outerCounterValue2={{outerCounterValue2}}</div>
+  <div>randomInt={{randomInt}}</div>
+  <pre>{{ form.value | json }}</pre>
