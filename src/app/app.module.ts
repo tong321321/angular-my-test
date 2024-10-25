@@ -11,6 +11,7 @@ import { TemplateDrivenFormEx1Component } from './template-driven-form-ex1/templ
 import { CounterInputComponent } from './counter-input/counter-input.component';
 import { CounterInput2Component } from './counter-input2/counter-input2.component';
 import { FormsModule } from '@angular/forms';
+import { TemplateExampleComponent } from './template-example/template-example.component';
 
 
 
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     ContactDetailComponent,
     TemplateDrivenFormEx1Component,
     CounterInputComponent,
-    CounterInput2Component
+    CounterInput2Component,
+    TemplateExampleComponent
   ],
   imports: [
     HttpClientModule,BrowserModule,

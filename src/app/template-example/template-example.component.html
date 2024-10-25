@@ -1,0 +1,28 @@
+<p>template-example works!</p>
+
+<ng-template let-name="nameVar" let-message="messageVar" #template3>  
+    <p>Example of pass more than one value:Dear {{name}} , {{message}} </p>
+</ng-template>
+<ng-container [ngTemplateOutlet]="template3" 
+        [ngTemplateOutletContext] ="{nameVar:'Guest',messageVar:'Welcome to our site'}">
+</ng-container>
+
+<ng-template let-person="person2"  #template4>  
+    <p>xample of pass an object:Dear {{person.name}} , {{person.message}} </p>
+</ng-template>   
+<ng-container [ngTemplateOutlet]="template4" 
+    [ngTemplateOutletContext] ="{ person2:{name:'Guest',message:'Welcome to our site'} }">
+ </ng-container> 
+
+ let-xxx means create a local variable with the name "xxx"
+ we have not assigned anything to the let-name, let-message so it will take the value from the $implicit, 
+ we have assigned "message2" to let-messages, so message2 will not take the value from the $implicit.
+<ng-template let-name let-message let-message2="message2" #template5>  
+    <p>Example of $implicit in ngTemplateOutletcontext: Dear {{name}} , {{message}}, {{message2}} </p>
+  </ng-template>
+   
+   
+  <ng-container [ngTemplateOutlet]="template5" 
+        [ngTemplateOutletContext] ="{$implicit:'Guest',message:'Welcome to our site'}">
+  </ng-container> 
+   
